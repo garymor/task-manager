@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const assert = require('assert')
-const bcrypt = require("bcryptjs")
+const assert = require('assert');
+const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -12,11 +14,8 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    age: {
-        type: Number,
-        min: [18, 'must be 18 - at list , got {VALUE} instead '],
-        max: 99,
-        default: 18,
+    accesgroup:{
+        type: String,
     },
     email: {
         type: String,
@@ -39,10 +38,18 @@ const userSchema = new mongoose.Schema({
         }
 
     },
-
     
 
+
 })
+
+userSchema.methods.generateAuthToken = async function () {
+    const user = this;
+    const token =  jwt.sign( { _id:user._id.toString() } ,'afekerma',{expiresIn:'7 days'});
+    return token ;
+
+}
+
 
 userSchema.statics.findByCredentials = async (email,password) => {
     const user = await User.findOne({email})
@@ -72,7 +79,6 @@ async function saltNhash(value)  {
     try{
     const salt = await bcrypt.genSalt()
     const hashValue = await bcrypt.hash(value,salt)
-    
     return hashValue ;
     }  catch(err){
         console.log(err)

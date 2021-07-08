@@ -15,7 +15,14 @@ app.use(userRouter);
 app.use(taskRouter);
 
 
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
+
+// const myFunction = () => {
+//    const token =  jwt.sign( { _id:'abc123' } ,'thisismynewcourse',{expiresIn:'7 days'})
+//    console.log(token)
+//    console.log(jwt.verify(token,'thisismynewcourse'))
+// }
+// myFunction()
 
 
 app.listen(port, () =>{

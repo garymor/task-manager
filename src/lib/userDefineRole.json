@@ -1,0 +1,57 @@
+
+{
+    "administrator":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "crud"] },
+            { "resource": { "file": "log.json"}, "actions": [ "crud" ] } ,
+            { "resource": { "db": "", "collection": "" }, "actions": [ "killCursors" ] }   
+        ]
+    },
+    "manager":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "crud"] }
+        ]
+    },
+    "QCManager":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "QCManager_2":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "QCManager_3":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "technician":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "technician_2":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "technician_3":{
+        "privileges":[
+            { "resource": { "db": ["users","process","customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "sales":{
+        "privileges":[
+            { "resource": { "db": ["customers"] }, "actions": [ "cru"] }
+        ]
+    },
+    "customer":{
+        "privileges":[
+            { "resource": { "db": ["customers"] }, "actions": [ "r"] },
+            { "resource": { "db": ["customersContacts"] }, "actions": [ "crud"] }
+        ]
+    } 
+    
+}
